@@ -1,10 +1,19 @@
 type algorithm = HS256 | HS512 | Unknown
 
-type t
-
-type header
+type header =
+  {
+    alg: algorithm;
+    typ: string option
+  }
 
 type payload = (string * string) list
+
+type t =
+  {
+    header: header;
+    payload: payload;
+    signature: string;
+  }
 
 type unsigned_token
 
