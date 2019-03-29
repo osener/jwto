@@ -218,7 +218,7 @@ let decode_payload =
 
 let encode (alg : algorithm) (secret : string) (payload : payload) : (string, string) result =
   let header =
-    {alg; typ= None}
+    {alg; typ= Some "JWT"}
   in
   let unsigned_token =
     {header; payload}
