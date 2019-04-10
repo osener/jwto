@@ -210,7 +210,7 @@ let claim_from_json json : (string * string, string) result =
 let payload_from_json json : (payload, string) result =
   json
     |> Yojson.Basic.Util.to_assoc
-    |> List.map claim_from_json
+    |> List.rev_map claim_from_json
     |> flatten
 
 let decode_payload =
